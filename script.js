@@ -36,28 +36,38 @@ let words = [
   "Докуда",
 ];
 
-let getQuestion = function() {
+let getQuestion = function () {
   let check = () =>
     words.some((el) =>
       ask.value.toLowerCase().split(" ")[0].includes(el.toLowerCase())
     );
-    check();
-    
-  let shar = () => {
-    (check() === false)
-      ? (text.textContent = answers[Math.floor(Math.random() * answers.length)])
-        : (text.textContent = `Задайте вопрос на "да или нет"`);
-    };
-    shar();
+  check();
 
-ask.value = "";
+  let shar = () => {
+    check() === false
+      ? (text.textContent = answers[Math.floor(Math.random() * answers.length)])
+      : (text.textContent = `Задайте вопрос на "да или нет"`);
+  };
+  shar();
+
+  ask.value = "";
 };
 
-
-btn.addEventListener("click", getQuestion);
-document.querySelector("#ask").addEventListener("keydown", function (e) {
-  if (e.keyCode === 13) {
-    getQuestion()
+btn.addEventListener("click", function () {
+  if (ask.value) {
+    getQuestion();
+  } else {
+    text.textContent = "Введите вопрос";
   }
 });
+document.querySelector("#ask").addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    if (ask.value) {
+      getQuestion();
+    } else {
+      text.textContent = "Введите вопрос";
+    }
+  }
+});
+
 balls.addEventListener("click", getQuestion);
