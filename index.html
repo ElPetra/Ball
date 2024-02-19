@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ball</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="game">
+      <div class="balls">
+        <img class="black__ball" src="./images/ball.png" alt="black ball" />
+        <div class="window">
+          <img
+            class="blue__ball"
+            src="./images/ball-hole.png"
+            alt="ball-hole"
+          />
+          <p id="answer" class="answer">Ответ</p>
+        </div>
+      </div>
+      <div class="question">
+        <p class="ask">Что бы получить ответ необходимо задать вопрос, вслух или в уме, и нажать на шар. Если все же вы хотите написать шару, то можете сделать это здесь:</p>
+          <div class="question__bottom">
+        <input id="ask" type="text"/>
+          <input id="btn" class="btn" type="submit" value="Спросить" />
+          </div>
+      </div>
+    </section>
+    <script src="./script.js"></script>
+  </body>
+</html>
